@@ -20,24 +20,17 @@ with open("dna_raw.txt", "r") as text_file: # Öppnar filen i läsläge ("r").
     
     if current_sequence_id: #Sparar sista sekvensen efter att loopen är klar
         dna_sequences[current_sequence_id] = current_sequence
+    
 
-# Skriver ut dictionaryn i form av "sekvens-ID: sekvens"
-for seq_id, sequence in dna_sequences.items():
-    print(f"{seq_id}: {sequence}")
+for seq_id, sequence in dna_sequences.items():  # Loopar igenom dictionaryn
+    sequence_length = len(sequence)  # Beräknar längden på sekvensen
+    unique_letters = set(sequence)  # Skapar en set() med unika bokstäver
+    
+    print(f"{seq_id}: (Längd: {sequence_length}) Unika bokstäver: {', '.join(sorted(unique_letters))}")
 
 
 
 
-#     for unique_char in text_file:
-#         if unique_char.isalpha():
-#             lower_char = unique_char.lower()
-#             if lower_char not in text_file:
-#                 dna_sequences[lower_char] = 1
-#             else:
-#                 dna_sequences[lower_char] += 1
-
-# for char, count in dna_sequences.items():
-#     print(f"{count}, {char}")
 
 
 
